@@ -21,8 +21,8 @@ namespace Oxide.Plugins
             [JsonProperty("Version")]
             public string Version { get; set; }
 
-            [JsonProperty("Entity Short Prefab Names")]
-            public List<string> EntityShortPrefabNames { get; set; }
+            [JsonProperty("No Condition Loss Entities")]
+            public List<string> NoConditionLossEntities { get; set; }
         }
 
         protected override void LoadConfig()
@@ -64,7 +64,7 @@ namespace Oxide.Plugins
             return new Configuration
             {
                 Version = Version.ToString(),
-                EntityShortPrefabNames = new List<string>()
+                NoConditionLossEntities = new List<string>()
                 {
                     "furnace",
                     "composter",
@@ -93,7 +93,7 @@ namespace Oxide.Plugins
         {
             if (player != null && entity != null && PermissionUtil.HasPermission(player, PermissionUtil.USE))
             {
-                if (_config.EntityShortPrefabNames.Contains(entity.ShortPrefabName))
+                if (_config.NoConditionLossEntities.Contains(entity.ShortPrefabName))
                     entity.pickup.subtractCondition = 0f;
             }
 
