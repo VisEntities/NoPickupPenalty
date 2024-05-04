@@ -1,10 +1,15 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
+/*
+ * Rewritten from scratch and maintained to present by VisEntities
+ * Originally created by Orange, up to version 1.1.1
+ */
+
 namespace Oxide.Plugins
 {
     [Info("No Pickup Penalty", "VisEntities", "2.0.0")]
-    [Description("Disables condition loss for certain deployed entities when they are picked up.")]
+    [Description("Disables condition loss for deployables when picked up.")]
     public class NoPickupPenalty : RustPlugin
     {
         #region Fields
@@ -69,6 +74,10 @@ namespace Oxide.Plugins
                     "furnace",
                     "composter",
                     "box.wooden.large",
+                    "workbench1.deployed",
+                    "workbench2.deployed",
+                    "workbench3.deployed",
+                    "woodbox_deployed"
                 },
             };
         }
